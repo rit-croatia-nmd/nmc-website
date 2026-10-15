@@ -32,12 +32,12 @@ export default function CalligraphyTitle({
   return (
     <div className={className}>
       <svg
-        className="marker-title-svg mx-auto w-full max-w-6xl"
-        viewBox="0 0 800 160"
+        className="marker-title-svg mx-auto w-full max-w-6xl overflow-visible"
+        viewBox="0 0 800 240"
         role="img"
         aria-label={text}
       >
-        <text ref={textRef} x="400" y="110" textAnchor="middle" className="marker-title-text">
+        <text ref={textRef} x="400" y="168" textAnchor="middle" className="marker-title-text">
           {text}
         </text>
       </svg>

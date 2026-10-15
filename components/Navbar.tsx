@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import Container from "./Container";
 import { navLinks, siteConfig } from "@/lib/site-config";
+import { isNavLinkActive } from "@/lib/nav";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -37,7 +38,7 @@ export default function Navbar() {
             as the logo and Join button (no absolute positioning needed). */}
         <nav className="glass hidden items-center gap-1 rounded-full p-1.5 md:flex">
           {navLinks.map((link) => {
-            const active = pathname === link.href;
+            const active = isNavLinkActive(pathname, link.href);
             return (
               <Link
                 key={link.href}
@@ -84,8 +85,8 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={clsx(
-                  "rounded-2xl px-4 py-3 text-base font-medium",
-                  pathname === link.href
+                  "flex w-full items-center rounded-2xl px-4 py-3 text-base font-medium",
+                  isNavLinkActive(pathname, link.href)
                     ? "bg-foreground text-background"
                     : "text-foreground/80"
                 )}
@@ -96,7 +97,7 @@ export default function Navbar() {
             <Link
               href="/join"
               onClick={() => setOpen(false)}
-              className="glass-accent mt-1 rounded-2xl px-4 py-3 text-center text-sm font-semibold text-accent"
+              className="glass-accent mt-1 flex w-full items-center justify-center rounded-2xl px-4 py-3 text-sm font-semibold text-accent"
             >
               Join us
             </Link>

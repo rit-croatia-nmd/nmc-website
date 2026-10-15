@@ -7,7 +7,7 @@ export default function HeroWelcome() {
       <p className="text-sm font-medium uppercase tracking-[0.35em] text-muted sm:text-base">
         welcome to
       </p>
-      <CalligraphyTitle text="New Media Center" className="mt-2 sm:mt-3" />
+      <CalligraphyTitle text="New Media Center" className="mt-5 sm:mt-7" />
     </Container>
   );
 }

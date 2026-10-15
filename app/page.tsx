@@ -26,6 +26,26 @@ export default function Home() {
         <ArtTicker />
       </section>
 
+      {/* Recent activity */}
+      <section className="border-b border-border py-20">
+        <Container>
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <SectionHeading eyebrow="From the archive" title="Recent activity" />
+            <Link
+              href="/archive"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
+            >
+              View full archive <ArrowUpRight size={16} />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {recentEvents.map((event) => (
+              <EventCard key={event.slug} event={event} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Join us today */}
       <section className="border-b border-border">
         <Container className="grid gap-12 py-20 sm:py-28 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -58,12 +78,12 @@ export default function Home() {
             </div>
           </div>
 
-          <figure className="min-w-0 w-full">
+          <figure className="min-w-0 w-full overflow-hidden rounded-2xl">
             <SiteImage
-              src="/home/join-club-room.jpg"
-              alt="NMC club hangout space with games and a cozy setup"
-              width={339}
-              height={339}
+              src="/home/instagram-grid-source.png"
+              alt="A grid of New Media Design Club photos, events, and student work"
+              width={1024}
+              height={681}
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="h-auto w-full"
               priority
@@ -140,26 +160,6 @@ export default function Home() {
                 <h3 className="font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{item.copy}</p>
               </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Recent activity */}
-      <section className="border-b border-border py-20">
-        <Container>
-          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading eyebrow="From the archive" title="Recent activity" />
-            <Link
-              href="/archive"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
-            >
-              View full archive <ArrowUpRight size={16} />
-            </Link>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {recentEvents.map((event) => (
-              <EventCard key={event.slug} event={event} />
             ))}
           </div>
         </Container>
